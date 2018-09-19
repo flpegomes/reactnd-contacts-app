@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
  class ListContacts extends Component {
   static propTypes = {
@@ -7,7 +8,7 @@ import PropTypes from 'prop-types'
     onDeleteContact: PropTypes.func.isRequired,
   }
 
-  state = {
+  state = { 
     query: ''
   }
 
@@ -40,6 +41,11 @@ import PropTypes from 'prop-types'
             value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
+
+          <Link 
+            to='/create'
+            className='add-contact'
+          >Add Contact</Link>
         </div>
         {showingContacts.length !== contacts.length && (
           <div className='showing-contacts'>
